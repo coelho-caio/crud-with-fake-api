@@ -2,12 +2,11 @@
   "name": "app-crud",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+	"app" : "ng serve",
+	"generateData": "node ./server/generateData.js > ./server/database.json",
+    "server": "json-server --watch ./server/database.json",
+	"start": "npm-run-all --parallel app generateData server"
+   
   },
   "private": true,
   "dependencies": {
@@ -19,6 +18,9 @@
     "@angular/platform-browser": "~10.2.0",
     "@angular/platform-browser-dynamic": "~10.2.0",
     "@angular/router": "~10.2.0",
+    "faker": "^5.1.0",
+    "json-server": "^0.16.2",
+    "npm-run-all": "^4.1.5",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
